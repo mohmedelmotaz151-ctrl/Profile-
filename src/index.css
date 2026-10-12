@@ -8,6 +8,23 @@
   [dir="ltr"] {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   }
+
+  /* Prevent Arabic cursive letters from disconnecting or overlapping ("مشربكة") */
+  [dir="rtl"], 
+  [dir="rtl"] * {
+    letter-spacing: 0 !important;
+    font-feature-settings: "liga" 1, "calt" 1;
+  }
+
+  [dir="rtl"] h1, 
+  [dir="rtl"] h2, 
+  [dir="rtl"] h3, 
+  [dir="rtl"] h4, 
+  [dir="rtl"] h5, 
+  [dir="rtl"] h6 {
+    letter-spacing: 0 !important;
+    word-spacing: normal !important;
+  }
 }
 
 /* Custom Print Styles for Formal Company Profile */

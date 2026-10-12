@@ -31,14 +31,30 @@ function normalizeColor(colorStr: string): string {
 }
 
 /**
- * Sanitizes all elements in a cloned document to ensure no unparsed color functions linger
+ * Sanitizes all elements in a cloned document to ensure:
+ * 1. No unparsed color functions linger (oklch)
+ * 2. Letter-spacing is reset to 0 to prevent Arabic characters from overlapping/garbling ("مشربكة")
+ * 3. Line-heights for titles are spacious enough for Arabic ascenders/descenders
  */
-function sanitizeClonedNodeColors(node: HTMLElement) {
+function sanitizeClonedNode(node: HTMLElement) {
   const elements = [node, ...Array.from(node.querySelectorAll('*'))] as HTMLElement[];
   for (const el of elements) {
     if (!el.style) continue;
-    const computed = window.getComputedStyle(el);
+    
+    // Explicitly reset letter spacing and word spacing for crisp Arabic cursive script
+    el.style.letterSpacing = '0px';
+    el.style.wordSpacing = 'normal';
 
+    const tagName = el.tagName ? el.tagName.toUpperCase() : '';
+    if (tagName.startsWith('H') || tagName === 'SPAN' || tagName === 'P') {
+      el.style.letterSpacing = '0px';
+      // Ensure comfortable line height so diacritics and letters do not overlap
+      if (tagName.startsWith('H')) {
+        el.style.lineHeight = '1.35';
+      }
+    }
+
+    const computed = window.getComputedStyle(el);
     if (computed.color && computed.color.includes('oklch')) {
       el.style.color = normalizeColor(computed.color);
     }
@@ -64,6 +80,14 @@ export async function generateProfilePdf(
     throw new Error('No pages found to export');
   }
 
+  // Ensure all web fonts (especially Arabic Cairo font) are fully loaded before rendering
+  if (typeof document !== 'undefined' && document.fonts) {
+    if (onProgress) {
+      onProgress('جاري تحميل خطوط الطباعة والتحقق من وضوح النصوص...');
+    }
+    await document.fonts.ready;
+  }
+
   const pdf = new jsPDF({
     orientation: 'portrait',
     unit: 'mm',
@@ -81,13 +105,36 @@ export async function generateProfilePdf(
     }
 
     const canvas = await html2canvas(pageEl, {
-      scale: 2, // High resolution crisp rendering
+      scale: 2, // High resolution crisp rendering (300 DPI equivalent)
       useCORS: true,
       logging: false,
       backgroundColor: '#ffffff',
       windowWidth: 1200,
-      onclone: (_clonedDoc, clonedElement) => {
-        sanitizeClonedNodeColors(clonedElement);
+      onclone: (clonedDoc, clonedElement) => {
+        // Inject global style into cloned document to eliminate any CSS letter-spacing
+        const style = clonedDoc.createElement('style');
+        style.textContent = `
+          * {
+            letter-spacing: 0px !important;
+            word-spacing: normal !important;
+          }
+          body, [dir="rtl"], [dir="rtl"] * {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif !important;
+            letter-spacing: 0px !important;
+            word-spacing: normal !important;
+            font-feature-settings: "liga" 1, "calt" 1 !important;
+            -webkit-font-smoothing: antialiased !important;
+          }
+          h1, h2, h3, h4, h5, h6 {
+            letter-spacing: 0px !important;
+            word-spacing: normal !important;
+            line-height: 1.35 !important;
+          }
+        `;
+        clonedDoc.head.appendChild(style);
+
+        // Sanitize colors and letter spacing for all nodes
+        sanitizeClonedNode(clonedElement);
       },
     });
 

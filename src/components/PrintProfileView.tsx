@@ -159,13 +159,13 @@ export const PrintProfileView: React.FC<PrintProfileViewProps> = ({ lang, onClos
           {/* Top Header Crest */}
           <div className="flex justify-between items-start border-b-2 border-red-600 pb-6">
             <div>
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-widest block mb-1">
+              <span className="text-xs font-bold text-slate-500 uppercase block mb-1" style={{ letterSpacing: '0px' }}>
                 {isAr ? 'المملكة العربية السعودية' : 'Kingdom of Saudi Arabia'}
               </span>
-              <h2 className="text-2xl font-black text-[#0B1E36]">
+              <h2 className="text-2xl font-black text-[#0B1E36]" style={{ letterSpacing: '0px', lineHeight: 1.4 }}>
                 {isAr ? 'شركة أوريكيت للمقاولات العامة' : 'Orkeit General Contracting Co.'}
               </h2>
-              <p className="text-xs text-red-600 font-bold mt-0.5">
+              <p className="text-xs text-red-600 font-bold mt-1" style={{ letterSpacing: '0px' }}>
                 {isAr ? 'قطاع أنظمة السلامة ومكافحة الحريق' : 'Fire Protection & Safety Systems Division'}
               </p>
             </div>
@@ -177,30 +177,36 @@ export const PrintProfileView: React.FC<PrintProfileViewProps> = ({ lang, onClos
 
           {/* Center Title & Cover Emblem */}
           <div className="text-center my-auto py-12 space-y-6">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-bold uppercase tracking-widest">
+            <div className="inline-block px-5 py-2 rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-bold" style={{ letterSpacing: '0px' }}>
               {isAr ? 'الملف التعريفي الفني الرسمي | ملف المنشأة' : 'Official Corporate & Technical Dossier'}
             </div>
 
-            <h1 className="text-4xl sm:text-5xl font-black text-[#0B1E36] tracking-tight leading-tight">
+            <h1 
+              className="text-4xl sm:text-5xl font-black text-[#0B1E36]"
+              style={{ letterSpacing: '0px', lineHeight: 1.35 }}
+            >
               {isAr ? 'شركة أوريكيت للمقاولات العامة' : 'Orkeit General Contracting Co.'}
             </h1>
 
             <div className="w-32 h-1.5 bg-red-600 mx-auto rounded-full" />
 
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-700 max-w-xl mx-auto leading-relaxed">
+            <h3 
+              className="text-xl sm:text-2xl font-bold text-slate-700 max-w-xl mx-auto"
+              style={{ letterSpacing: '0px', lineHeight: 1.6 }}
+            >
               {isAr 
                 ? 'أنظمة السلامة والوقاية، صيانة وتعبئة طفايات الحريق، شبكات الإنذار المبكر ومكافحة الحريق'
                 : 'Turnkey Fire Protection Systems, Extinguisher Refilling, Early Detection & Hydraulic Fire Suppression Networks'}
             </h3>
 
             <div className="pt-6 flex justify-center gap-3">
-              <span className="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700 border border-slate-200">
+              <span className="px-3 py-1.5 bg-slate-100 rounded text-xs font-bold text-slate-700 border border-slate-200" style={{ letterSpacing: '0px' }}>
                 {isAr ? 'كود البناء السعودي SBC 801' : 'Saudi Building Code SBC 801'}
               </span>
-              <span className="px-3 py-1 bg-red-50 rounded text-xs font-bold text-red-700 border border-red-200">
+              <span className="px-3 py-1.5 bg-red-50 rounded text-xs font-bold text-red-700 border border-red-200" style={{ letterSpacing: '0px' }}>
                 {isAr ? 'اشتراطات الدفاع المدني' : 'Civil Defense Compliant'}
               </span>
-              <span className="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700 border border-slate-200">
+              <span className="px-3 py-1.5 bg-slate-100 rounded text-xs font-bold text-slate-700 border border-slate-200" style={{ letterSpacing: '0px' }}>
                 {isAr ? 'طوارئ 24/7' : '24/7 Readiness'}
               </span>
             </div>
@@ -236,14 +242,14 @@ export const PrintProfileView: React.FC<PrintProfileViewProps> = ({ lang, onClos
           <div className="space-y-7">
             {/* Page Header */}
             <div className="border-b-2 border-[#0B1E36] pb-3 flex justify-between items-center">
-              <h2 className="text-2xl font-black text-[#0B1E36]">
+              <h2 className="text-2xl font-black text-[#0B1E36]" style={{ letterSpacing: '0px', lineHeight: 1.4 }}>
                 {isAr ? '1. نبذة عن الشركة والبيانات النظامية' : '1. Executive Profile & Regulatory Credentials'}
               </h2>
               <span className="text-xs font-mono font-bold text-red-600">PAGE 02</span>
             </div>
 
             {/* Narrative Summary */}
-            <div className="space-y-4 text-justify text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <div className="space-y-4 text-justify text-xs sm:text-sm text-slate-700 leading-relaxed" style={{ letterSpacing: '0px' }}>
               <p>
                 {isAr 
                   ? 'تعتبر شركة أوريكيت للمقاولات العامة (Orkeit) إحدى الشركات الوطنية الرائدة والمتخصصة في تقديم منظومة هندسية متكاملة لحلول السلامة والوقاية من الحريق. نحرص على تقديم خدماتنا بأعلى معايير الدقة والاحترافية لحماية الأرواح والممتلكات الخاصة والعامة، تماشياً مع أهداف رؤية المملكة 2030.'
@@ -258,7 +264,7 @@ export const PrintProfileView: React.FC<PrintProfileViewProps> = ({ lang, onClos
 
             {/* Credentials Slots Hub */}
             <div className="pt-2">
-              <h3 className="text-base font-bold text-[#0B1E36] mb-4 flex items-center gap-2">
+              <h3 className="text-base font-bold text-[#0B1E36] mb-4 flex items-center gap-2" style={{ letterSpacing: '0px', lineHeight: 1.4 }}>
                 <Award className="w-5 h-5 text-red-600" />
                 <span>{isAr ? 'خانات السجل التجاري والتراخيص والاعتمادات (قيد التحقق والتوثيق)' : 'Commercial Registration & Accreditations (Under Verification)'}</span>
               </h3>
@@ -305,7 +311,7 @@ export const PrintProfileView: React.FC<PrintProfileViewProps> = ({ lang, onClos
         >
           <div className="space-y-6">
             <div className="border-b-2 border-[#0B1E36] pb-3 flex justify-between items-center">
-              <h2 className="text-2xl font-black text-[#0B1E36]">
+              <h2 className="text-2xl font-black text-[#0B1E36]" style={{ letterSpacing: '0px', lineHeight: 1.4 }}>
                 {isAr ? '2. خدمات السلامة والوقاية ومكافحة الحريق' : '2. Fire Protection & Safety Services Scope'}
               </h2>
               <span className="text-xs font-mono font-bold text-red-600">PAGE 03</span>
@@ -315,10 +321,10 @@ export const PrintProfileView: React.FC<PrintProfileViewProps> = ({ lang, onClos
               {SERVICES_LIST.map((srv) => (
                 <div key={srv.id} className="border border-slate-300 rounded-xl p-4 bg-white space-y-2.5">
                   <div className="flex items-center justify-between border-b pb-2">
-                    <h4 className="font-bold text-xs sm:text-sm text-[#0B1E36]">
+                    <h4 className="font-bold text-xs sm:text-sm text-[#0B1E36]" style={{ letterSpacing: '0px', lineHeight: 1.4 }}>
                       {isAr ? srv.titleAr : srv.titleEn}
                     </h4>
-                    <span className="text-[9px] font-bold px-2 py-0.5 rounded bg-red-100 text-red-700">
+                    <span className="text-[9px] font-bold px-2 py-0.5 rounded bg-red-100 text-red-700" style={{ letterSpacing: '0px' }}>
                       {isAr ? srv.tagAr : srv.tagEn}
                     </span>
                   </div>
@@ -355,7 +361,7 @@ export const PrintProfileView: React.FC<PrintProfileViewProps> = ({ lang, onClos
         >
           <div className="space-y-6">
             <div className="border-b-2 border-[#0B1E36] pb-3 flex justify-between items-center">
-              <h2 className="text-2xl font-black text-[#0B1E36]">
+              <h2 className="text-2xl font-black text-[#0B1E36]" style={{ letterSpacing: '0px', lineHeight: 1.4 }}>
                 {isAr ? '3. منهجية العمل والصيانة والتواصل' : '3. Methodology, Maintenance & Contact'}
               </h2>
               <span className="text-xs font-mono font-bold text-red-600">PAGE 04</span>
@@ -363,7 +369,7 @@ export const PrintProfileView: React.FC<PrintProfileViewProps> = ({ lang, onClos
 
             {/* Workflow Steps */}
             <div>
-              <h3 className="text-sm font-bold text-[#0B1E36] mb-3">
+              <h3 className="text-sm font-bold text-[#0B1E36] mb-3" style={{ letterSpacing: '0px', lineHeight: 1.4 }}>
                 {isAr ? 'مراحل تنفيذ وضمان جودة الأعمال الهندسية والصيانة' : 'Operational Lifecycle & Maintenance Quality Assurance'}
               </h3>
 
@@ -374,9 +380,9 @@ export const PrintProfileView: React.FC<PrintProfileViewProps> = ({ lang, onClos
                       <span className="w-5 h-5 rounded bg-[#0B1E36] text-white flex items-center justify-center font-mono text-[9px]">
                         {step.stepNumber}
                       </span>
-                      <span className="text-xs">{isAr ? step.titleAr : step.titleEn}</span>
+                      <span className="text-xs" style={{ letterSpacing: '0px' }}>{isAr ? step.titleAr : step.titleEn}</span>
                     </div>
-                    <p className="text-slate-600 leading-normal text-[10px]">
+                    <p className="text-slate-600 leading-normal text-[10px]" style={{ letterSpacing: '0px' }}>
                       {isAr ? step.descriptionAr : step.descriptionEn}
                     </p>
                   </div>
@@ -388,10 +394,10 @@ export const PrintProfileView: React.FC<PrintProfileViewProps> = ({ lang, onClos
             <div className="border-2 border-[#0B1E36] bg-[#0B1E36] text-white p-6 rounded-2xl space-y-4">
               <div className="flex justify-between items-center border-b border-slate-700 pb-3">
                 <div>
-                  <h4 className="text-lg font-bold">
+                  <h4 className="text-lg font-bold" style={{ letterSpacing: '0px', lineHeight: 1.4 }}>
                     {isAr ? 'شركة أوريكيت للمقاولات العامة' : 'Orkeit General Contracting Co.'}
                   </h4>
-                  <p className="text-xs text-red-400 font-semibold">
+                  <p className="text-xs text-red-400 font-semibold" style={{ letterSpacing: '0px' }}>
                     {isAr ? 'حي الضيافة - المملكة العربية السعودية' : 'Al-Diyafa District - Kingdom of Saudi Arabia'}
                   </p>
                 </div>
