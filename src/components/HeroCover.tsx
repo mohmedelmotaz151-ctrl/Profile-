@@ -6,6 +6,7 @@ import {
   Building2, 
   CheckCircle2, 
   Printer, 
+  Download,
   ArrowRight,
   ArrowLeft,
   Clock,
@@ -81,10 +82,10 @@ export const HeroCover: React.FC<HeroCoverProps> = ({
 
             <button
               onClick={onTriggerPrint}
-              className="flex items-center gap-2.5 px-5 py-3.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 border border-slate-600 text-white font-semibold text-sm transition-all cursor-pointer shadow-lg"
+              className="flex items-center gap-2.5 px-5 py-3.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 border border-slate-600 text-white font-semibold text-sm transition-all cursor-pointer shadow-lg hover:border-red-500/50"
             >
-              <Printer className="w-4 h-4 text-red-400" />
-              <span>{isAr ? 'تحميل البروفايل (PDF / طباعة)' : 'Export / Print Profile PDF'}</span>
+              <Download className="w-4 h-4 text-red-400" />
+              <span>{isAr ? 'تحميل البروفايل PDF' : 'Download Profile PDF'}</span>
             </button>
 
             <button

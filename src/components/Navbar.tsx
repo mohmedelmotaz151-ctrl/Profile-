@@ -136,14 +136,14 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className="hidden xl:inline">{isAr ? 'سجل Google Sheets' : 'Google Sheets'}</span>
             </button>
 
-            {/* Print / Export Profile Button */}
+            {/* Download Profile PDF Button */}
             <button
               onClick={onTriggerPrint}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-200 text-xs font-medium transition cursor-pointer"
-              title={isAr ? 'طباعة / حفظ البروفايل كملف رسمي' : 'Print / Save Formal Profile PDF'}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-red-950/40 hover:bg-red-900/60 border border-red-500/40 text-red-300 text-xs font-semibold transition cursor-pointer shadow-sm"
+              title={isAr ? 'تحميل البروفايل كملف PDF رسمي' : 'Download Formal Profile PDF'}
             >
-              <Printer className="w-4 h-4 text-slate-300" />
-              <span className="hidden md:inline">{isAr ? 'طباعة البروفايل' : 'Print Profile'}</span>
+              <Printer className="w-4 h-4 text-red-400" />
+              <span>{isAr ? 'تحميل البروفايل PDF' : 'Download Profile PDF'}</span>
             </button>
 
             {/* Language Switch */}
@@ -217,10 +217,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onTriggerPrint();
               }}
-              className="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-slate-800 text-slate-200 text-xs border border-slate-700"
+              className="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-red-950/40 text-red-300 text-xs border border-red-500/40 font-bold"
             >
               <Printer className="w-4 h-4" />
-              <span>{isAr ? 'طباعة البروفايل' : 'Print PDF'}</span>
+              <span>{isAr ? 'تحميل البروفايل PDF' : 'Download Profile PDF'}</span>
             </button>
           </div>
 
