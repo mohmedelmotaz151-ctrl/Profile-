@@ -1,0 +1,6 @@
+{
+  "name": "Orkeit Contracting Profile",
+  "description": "بروفايل رسمي ثنائي اللغة لشركة أوريكيت للمقاولات العامة وأنظمة السلامة والوقاية من الحريق",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
